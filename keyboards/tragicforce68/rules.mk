@@ -1,3 +1,5 @@
+SRC =	dynamic_keymap_main.c
+
 MCU = atmega32u4
 F_CPU = 16000000
 ARCH = AVR8
@@ -24,3 +26,6 @@ MIDI_ENABLE = no            # MIDI controls
 UNICODE_ENABLE = no         # Unicode
 BLUETOOTH_ENABLE = no       # Enable Bluetooth with the Adafruit EZ-Key HID
 AUDIO_ENABLE = no           # Audio output on port C6
+
+RAW_ENABLE = yes
+DYNAMIC_KEYMAP_ENABLE = yes
