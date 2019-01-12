@@ -65,9 +65,13 @@ static void keyboard_slave_setup(void) {
 }
 
 bool has_usb(void) {
-   USBCON |= (1 << OTGPADE); //enables VBUS pad
-   _delay_us(5);
-   return (USBSTA & (1<<VBUS));  //checks state of VBUS
+    #ifdef SPLIT_DETECT_USB_UPSTREAM
+        return (UDADDR & _BV(ADDEN));
+    #else
+        USBCON |= (1 << OTGPADE); //enables VBUS pad
+        _delay_us(5);
+        return (USBSTA & (1<<VBUS));  //checks state of VBUS
+    #endif
 }
 
 void split_keyboard_setup(void) {
@@ -134,9 +138,14 @@ void keyboard_slave_loop(void) {
    }
 }
 
-// this code runs before the usb and keyboard is initialized
+// This code normally runs before the USB and keyboard is initialized.
+// If SPLIT_DETECT_USB_UPSTREAM is defined, then this will init after USB is initialized
 void matrix_setup(void) {
     split_keyboard_setup();
+
+    #ifdef SPLIT_DETECT_USB_UPSTREAM
+    _delay_ms(2000);  // Wait for USB connection
+    #endif
 
     if (!has_usb()) {
         //rgblight_init();

@@ -670,7 +670,7 @@ static void send_keyboard(report_keyboard_t *report)
 
     keyboard_report_sent = *report;
 }
- 
+
 /** \brief Send Mouse
  *
  * FIXME: Needs doc
@@ -1035,8 +1035,15 @@ int main(void)
 #endif
 
     setup_mcu();
+
+#ifdef SPLIT_DETECT_USB_UPSTREAM
+    setup_usb();
+    keyboard_setup();
+#else
     keyboard_setup();
     setup_usb();
+#endif
+
     sei();
 
 #if defined(MODULE_ADAFRUIT_EZKEY) || defined(MODULE_RN42)
