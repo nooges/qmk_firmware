@@ -4,8 +4,12 @@
 
 #ifdef KEYBOARD_levinson_rev1
     #include "rev1.h"
-#else
+#endif
+#ifdef KEYBOARD_levinson_rev2
     #include "rev2.h"
+#endif
+#ifdef KEYBOARD_levinson_mxlp
+    #include "mxlp.h"
 #endif
 
 // Used to create a keymap using only KC_ prefixed keys
