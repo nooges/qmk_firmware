@@ -21,22 +21,27 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0xCB10
 #define PRODUCT_ID      0x1257
-#define DEVICE_VER      0x0100
+#define DEVICE_VER      0x0200
 #define MANUFACTURER    Keebio
 #define PRODUCT         Quefrency
 #define DESCRIPTION     Split 60/65 percent staggered keyboard
 
 /* key matrix size */
 // Rows are doubled-up
-#define MATRIX_ROWS 12
-#define MATRIX_COLS 8
+#define MATRIX_ROWS 10
+#define MATRIX_COLS 9
 
 // wiring of each half
-#define MATRIX_ROW_PINS { F4, D4, D7, E6, B4, C6 }
-#define MATRIX_COL_PINS { F5, F6, F7, B1, B3, B2, B6, B5 }
-#define MATRIX_ROW_PINS_RIGHT { F4, D4, D7, E6, B4, B5 }
-#define MATRIX_COL_PINS_RIGHT { F5, F6, F7, B1, B3, B2, B6, C6 }
-#define SPLIT_HAND_PIN D2
+#define MATRIX_ROW_PINS { B14, B13, A2, A1, A3, A0, A0, A0, A0, A0 }
+#define MATRIX_COL_PINS { B1, B10, B11, A15, B3, B4, B5, B6, B7 }
+//#define MATRIX_ROW_PINS_RIGHT { F4, D4, D7, E6, B4, B5 }
+//#define MATRIX_COL_PINS_RIGHT { F5, F6, F7, B1, B3, B2, B6, C6 }
+#define SPLIT_HAND_PIN B0
+#define MASTER_VBUS_PIN B2
+
+#define BACKLIGHT_LEVELS 6
+#define BACKLIGHT_BREATHING
+#define BREATHING_PERIOD 6
 
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE 5
@@ -50,6 +55,30 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define LOCKING_RESYNC_ENABLE
 
 /* ws2812 RGB LED */
-#define RGB_DI_PIN D3
 #define RGBLIGHT_ANIMATIONS
-#define RGBLED_NUM 16    // Number of LEDs
+#define WS2812_LED_N 8
+#define RGBLED_NUM WS2812_LED_N
+#define PORT_WS2812     GPIOB
+#define PIN_WS2812      15
+#define WS2812_SPI SPID2
+
+
+// EEPROM usage
+// TODO: refactor with new user EEPROM code (coming soon)
+#define EEPROM_MAGIC 0x451F
+#define EEPROM_MAGIC_ADDR 32
+// Bump this every time we change what we store
+// This will automatically reset the EEPROM with defaults
+// and avoid loading invalid data from the EEPROM
+#define EEPROM_VERSION 0x02
+#define EEPROM_VERSION_ADDR 34
+
+
+#define DYNAMIC_KEYMAP_LAYER_COUNT 4
+// Dynamic macro starts after dynamic keymaps (35+(4*5*15*2)) = (35+600) = 635
+// start + layer * rows * col * 2
+#define DYNAMIC_KEYMAP_EEPROM_ADDR 35
+#define EEPROM_CUSTOM_BACKLIGHT 636
+#define DYNAMIC_KEYMAP_MACRO_EEPROM_ADDR 637
+#define DYNAMIC_KEYMAP_MACRO_EEPROM_SIZE 200
+#define DYNAMIC_KEYMAP_MACRO_COUNT 16
