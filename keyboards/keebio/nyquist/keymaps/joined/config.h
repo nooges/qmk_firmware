@@ -1,0 +1,3 @@
+#define USE_I2C
+#define OLED_DISPLAY_128X64
+//#define OLED_DISPLAY_ADDRESS 0x78
