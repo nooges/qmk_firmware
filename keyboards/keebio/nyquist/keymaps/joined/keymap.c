@@ -13,12 +13,12 @@ enum layer_names {
 };
 
 enum custom_keycodes {
-  MAC = SAFE_RANGE,
-  WINDOWS,
-  TESTMODE,
-  LOWER,
-  RAISE,
-  ADJUST,
+    MAC = SAFE_RANGE,
+    WINDOWS,
+    TESTMODE,
+    LOWER,
+    RAISE,
+    ADJUST,
 };
 
 #define KC_ KC_TRNS
@@ -148,94 +148,111 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case MAC:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_MAC);
-      }
-      return false;
-      break;
-    case WINDOWS:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_WINDOWS);
-      }
-      return false;
-      break;
-    case TESTMODE:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_TESTMODE);
-      }
-      return false;
-      break;
-    case LOWER:
-      if (record->event.pressed) {
-        layer_on(_LOWER);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      } else {
-        layer_off(_LOWER);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      }
-      return false;
-      break;
-    case RAISE:
-      if (record->event.pressed) {
-        layer_on(_RAISE);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      } else {
-        layer_off(_RAISE);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      }
-      return false;
-      break;
-    case ADJUST:
-      if (record->event.pressed) {
-        layer_on(_ADJUST);
-      } else {
-        layer_off(_ADJUST);
-      }
-      return false;
-      break;
-  }
-  return true;
+    switch (keycode) {
+        case MAC:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_MAC);
+            }
+            return false;
+            break;
+        case WINDOWS:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_WINDOWS);
+            }
+            return false;
+            break;
+        case TESTMODE:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_TESTMODE);
+            }
+            return false;
+            break;
+        case LOWER:
+            if (record->event.pressed) {
+                layer_on(_LOWER);
+                update_tri_layer(_LOWER, _RAISE, _ADJUST);
+            } else {
+                layer_off(_LOWER);
+                update_tri_layer(_LOWER, _RAISE, _ADJUST);
+            }
+            return false;
+            break;
+        case RAISE:
+            if (record->event.pressed) {
+                layer_on(_RAISE);
+                update_tri_layer(_LOWER, _RAISE, _ADJUST);
+            } else {
+                layer_off(_RAISE);
+                update_tri_layer(_LOWER, _RAISE, _ADJUST);
+            }
+            return false;
+            break;
+        case ADJUST:
+            if (record->event.pressed) {
+                layer_on(_ADJUST);
+            } else {
+                layer_off(_ADJUST);
+            }
+            return false;
+            break;
+    }
+    return true;
 }
 
 #ifdef OLED_DRIVER_ENABLE
-#include "split_util.h"
+#    include "split_util.h"
 
 void oled_task_user(void) {
     if (!isLeftHand) {
         return;
     }
-  // Host Keyboard Layer Status
-  oled_write_P(PSTR("Layer: "), false);
-  switch (get_highest_layer(layer_state)) {
-    case _MAC:
-      oled_write_P(PSTR("MacOS\n"), false);
-      break;
-    case _WINDOWS:
-      oled_write_P(PSTR("Windows\n"), false);
-      break;
-    case _TESTMODE:
-      oled_write_P(PSTR("Test Mode\n"), false);
-      break;
-    case _LOWER:
-      oled_write_P(PSTR("Lower\n"), false);
-      break;
-    case _RAISE:
-      oled_write_P(PSTR("Raise\n"), false);
-      break;
-    case _ADJUST:
-      oled_write_P(PSTR("Adjust\n"), false);
-      break;
-    default:
-      // Or use the write_ln shortcut over adding '\n' to the end of your string
-      oled_write_ln_P(PSTR("Undefined"), false);
-  }
+    // Host Keyboard Layer Status
+    oled_write_P(PSTR("Layer: "), false);
+    switch (get_highest_layer(layer_state)) {
+        case _MAC:
+            oled_write_P(PSTR("MacOS\n"), false);
+            break;
+        case _WINDOWS:
+            oled_write_P(PSTR("Windows\n"), false);
+            break;
+        case _TESTMODE:
+            oled_write_P(PSTR("Test Mode\n"), false);
+            break;
+        case _LOWER:
+            oled_write_P(PSTR("Lower\n"), false);
+            break;
+        case _RAISE:
+            oled_write_P(PSTR("Raise\n"), false);
+            break;
+        case _ADJUST:
+            oled_write_P(PSTR("Adjust\n"), false);
+            break;
+        default:
+            // Or use the write_ln shortcut over adding '\n' to the end of your string
+            oled_write_ln_P(PSTR("Undefined"), false);
+    }
 
-  // Host Keyboard LED Status
-  uint8_t led_usb_state = host_keyboard_leds();
-  oled_write_P(led_usb_state & (1<<USB_LED_NUM_LOCK) ? PSTR("NUMLCK ") : PSTR("       "), false);
-  oled_write_P(led_usb_state & (1<<USB_LED_CAPS_LOCK) ? PSTR("CAPLCK ") : PSTR("       "), false);
-  oled_write_P(led_usb_state & (1<<USB_LED_SCROLL_LOCK) ? PSTR("SCRLCK ") : PSTR("       "), false);
+    // Host Keyboard LED Status
+    uint8_t led_usb_state = host_keyboard_leds();
+    oled_write_P(led_usb_state & (1 << USB_LED_NUM_LOCK) ? PSTR("NUMLCK ") : PSTR("       "), false);
+    oled_write_P(led_usb_state & (1 << USB_LED_CAPS_LOCK) ? PSTR("CAPLCK ") : PSTR("       "), false);
+    oled_write_P(led_usb_state & (1 << USB_LED_SCROLL_LOCK) ? PSTR("SCRLCK ") : PSTR("       "), false);
 }
 #endif
+
+void encoder_update_user(uint8_t index, bool clockwise) {
+    if (index == 0) {
+        if (clockwise) {
+            tap_code(KC_VOLU);
+        } else {
+            tap_code(KC_VOLD);
+        }
+    }
+    else if (index == 1) {
+        if (clockwise) {
+            tap_code(KC_PGDN);
+        } else {
+            tap_code(KC_PGUP);
+        }
+    }
+}

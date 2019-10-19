@@ -1,3 +1,6 @@
 #define USE_I2C
 #define OLED_DISPLAY_128X64
 //#define OLED_DISPLAY_ADDRESS 0x78
+
+#define ENCODERS_PAD_A { B2 }
+#define ENCODERS_PAD_B { B1 }
