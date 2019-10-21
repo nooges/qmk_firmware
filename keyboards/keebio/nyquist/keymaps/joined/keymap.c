@@ -54,7 +54,7 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-  [_MAC] = LAYOUT_kc_ortho_4x12(
+  [_MAC] = LAYOUT_kc_ortho_5x12(
   //┌────┬────┬────┬────┬────┬────┐    ┌────┬────┬────┬────┬────┬────┐
      TAB , Q  , W  , E  , R  , T  ,      Y  , U  , I  , O  , P  ,MINS,
   //├────┼────┼────┼────┼────┼────┤    ├────┼────┼────┼────┼────┼────┤
@@ -62,11 +62,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────┼────┼────┼────┼────┼────┤    ├────┼────┼────┼────┼────┼────┤
      LSFT, Z  , X  , C  , V  , B  ,      N  , M  ,COMM,DOT ,SLSH,ENTS,
   //├────┼────┼────┼────┼────┼────┤    ├────┼────┼────┼────┼────┼────┤
-     GRVF,LCTL,LALT,LGUI,LOWR,SPC ,     BSPC,RASE,LEFT,DOWN, UP ,RGHT
+     GRVF,LCTL,LALT,LGUI,LOWR,SPC ,     BSPC,RASE,LEFT,DOWN, UP ,RGHT,
+  //├────┼────┼────┼────┼────┼────┤    ├────┼────┼────┼────┼────┼────┤
+         ,    ,    ,    ,    ,MUTE,     HOME,    ,    ,    ,    ,
   //└────┴────┴────┴────┴────┴────┘    └────┴────┴────┴────┴────┴────┘
   ),
 
-  [_WINDOWS] = LAYOUT_kc_ortho_4x12(
+  [_WINDOWS] = LAYOUT_kc_ortho_5x12(
   //┌────┬────┬────┬────┬────┬────┐    ┌────┬────┬────┬────┬────┬────┐
      TAB , Q  , W  , E  , R  , T  ,      Y  , U  , I  , O  , P  ,MINS,
   //├────┼────┼────┼────┼────┼────┤    ├────┼────┼────┼────┼────┼────┤
@@ -74,7 +76,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────┼────┼────┼────┼────┼────┤    ├────┼────┼────┼────┼────┼────┤
      LSFT, Z  , X  , C  , V  , B  ,      N  , M  ,COMM,DOT ,SLSH,ENTS,
   //├────┼────┼────┼────┼────┼────┤    ├────┼────┼────┼────┼────┼────┤
-     GRVF,LALT,LGUI,LCTL,LOWR,SPC ,     BSPC,RASE,LEFT,DOWN, UP ,RGHT
+     GRVF,LCTL,LALT,LGUI,LOWR,SPC ,     BSPC,RASE,LEFT,DOWN, UP ,RGHT,
+  //├────┼────┼────┼────┼────┼────┤    ├────┼────┼────┼────┼────┼────┤
+         ,    ,    ,    ,    ,MUTE,     HOME,    ,    ,    ,    ,
   //└────┴────┴────┴────┴────┴────┘    └────┴────┴────┴────┴────┴────┘
   ),
 
