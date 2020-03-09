@@ -247,16 +247,22 @@ void oled_task_user(void) {
 void encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         if (clockwise) {
-            tap_code(KC_VOLU);
+            register_code(KC_LSFT);
+            tap_code(KC_WH_U);
+            tap_code(KC_WH_U);
+            unregister_code(KC_LSFT);
         } else {
-            tap_code(KC_VOLD);
+            register_code(KC_LSFT);
+            tap_code(KC_WH_D);
+            tap_code(KC_WH_D);
+            unregister_code(KC_LSFT);
         }
     }
     else if (index == 1) {
         if (clockwise) {
-            tap_code(KC_PGDN);
+            tap_code(KC_WH_U);
         } else {
-            tap_code(KC_PGUP);
+            tap_code(KC_WH_D);
         }
     }
 }
