@@ -8,6 +8,8 @@
     #include "rev2.h"
 #elif KEYBOARD_keebio_levinson_rev3
     #include "rev3.h"
+#elif KEYBOARD_keebio_levinson_rev4
+    #include "rev4.h"
 #endif
 
 // Used to create a keymap using only KC_ prefixed keys
