@@ -22,6 +22,7 @@ FAUXCLICKY_ENABLE = no      # Use buzzer to emulate clicky switches
 HD44780_ENABLE = no         # Enable support for HD44780 based LCDs
 ENCODER_ENABLE = yes
 RGB_MATRIX_ENABLE = WS2812
+EEPROM_DRIVER = i2c
 
 # Enter lower-power sleep mode when on the ChibiOS idle thread
 OPT_DEFS += -DCORTEX_ENABLE_WFI_IDLE=TRUE

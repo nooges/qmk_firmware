@@ -58,6 +58,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    endif
 #endif
 
+/* EEPROM Configuration */
+#define EXTERNAL_EEPROM_I2C_BASE_ADDRESS 0b10100000
+#define EEPROM_I2C_24LC256
+#define I2C_DRIVER I2CD2
+#define I2C1_SCL 10
+#define I2C1_SDA 11
+#define I2C1_SCL_PAL_MODE 1
+#define I2C1_SDA_PAL_MODE 1
+
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCE 5
 
