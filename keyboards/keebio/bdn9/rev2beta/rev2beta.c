@@ -1,4 +1,4 @@
-#include "rev2.h"
+#include "rev2beta.h"
 
 #ifdef RGB_MATRIX_ENABLE
 led_config_t g_led_config = { {
@@ -35,5 +35,5 @@ void eeconfig_init_kb(void) {
 #endif
 
     eeconfig_update_kb(0);
-    eeconfig_init_user();
+    //eeconfig_init_user();
 }
