@@ -35,7 +35,7 @@
 #include "eeprom.h"
 #include "eeprom_i2c.h"
 
-// #define DEBUG_EEPROM_OUTPUT
+#define DEBUG_EEPROM_OUTPUT
 
 #if defined(CONSOLE_ENABLE) && defined(DEBUG_EEPROM_OUTPUT)
 #    include "timer.h"
