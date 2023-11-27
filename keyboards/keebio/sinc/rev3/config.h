@@ -26,6 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define I2C_DRIVER I2CD1
 #define I2C1_SCL_PIN GP22
 #define I2C1_SDA_PIN GP23
+#define VIA_EEPROM_LAYOUT_OPTIONS_SIZE 2
 
 // RGB Matrix
 #define ENABLE_RGB_MATRIX_ALPHAS_MODS
