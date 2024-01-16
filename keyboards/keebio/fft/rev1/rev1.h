@@ -1,6 +1,5 @@
 #pragma once
 
-#include "fft.h"
 #include "quantum.h"
 
 #define LAYOUT( \
