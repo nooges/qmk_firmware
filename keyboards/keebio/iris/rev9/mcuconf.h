@@ -6,8 +6,8 @@
 #include_next <mcuconf.h>
 
 /* enable USART2, used for split comms */
-#undef STM32_SERIAL_USE_USART3
-#define STM32_SERIAL_USE_USART3 TRUE
+#undef STM32_SERIAL_USE_USART2
+#define STM32_SERIAL_USE_USART2 TRUE
 
 /* enable TIM3, used for RGB LED PWM driver */
 #undef STM32_PWM_USE_TIM3
