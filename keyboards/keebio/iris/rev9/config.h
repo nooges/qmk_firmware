@@ -4,9 +4,9 @@
 #pragma once
 
 /* Defines for the split keyboard setup */
-#define SERIAL_USART_DRIVER SD2         // USART 2
-#define SERIAL_USART_TX_PIN B3
-#define SERIAL_USART_RX_PIN B4
+#define SERIAL_USART_DRIVER SD3         // USART 3
+#define SERIAL_USART_TX_PIN B10
+#define SERIAL_USART_RX_PIN B11
 #define SERIAL_USART_TX_PAL_MODE 7
 #define SERIAL_USART_RX_PAL_MODE 7
 #define SERIAL_USART_FULL_DUPLEX

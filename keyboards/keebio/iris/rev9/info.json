@@ -19,15 +19,23 @@
         "pin": "B7"
     },
     "matrix_pins": {
-        "cols": ["C4", "B11", "A5", "C11", "A13", "A14"],
-        "rows": ["A3", "A4", "A10", "B5", "F1"]
+        "cols": ["C4", "B2", "A5", "C11", "C13", "C14"],
+        "rows": ["A4", "A3", "A10", "B5", "F1"]
     },
     "split": {
         "enabled": true,
+        "encoder": {
+            "right": {
+                "rotary": [
+                    {"pin_a": "B1", "pin_b": "B0"},
+                    {"pin_a": "B13", "pin_b": "B12"}
+                ]
+            }
+        },
         "matrix_pins": {
             "right": {
-                "cols": ["A15", "C10", "B9", "C11", "A13", "B2"],
-                "rows": ["A3", "A4", "B11", "A14", "A1"]
+                "cols": ["A15", "C10", "B9", "C11", "A6", "B2"],
+                "rows": ["C4", "A7", "B4", "C13", "A1"]
             }
         },
         "transport": {
