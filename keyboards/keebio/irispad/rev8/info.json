@@ -66,6 +66,10 @@
             "splash": true,
             "typing_heatmap": true
         },
+        "default": {
+            "animation": "cycle_pinwheel",
+            "speed": 48
+        },
         "driver": "ws2812",
         "layout": [
             {"matrix": [0, 0], "x": 0, "y": 5, "flags": 4},
